@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chin-H. Shih | Academic Profile</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d2e;
+      --border: #2e3150;
+      --accent: #7c83ff;
+      --accent2: #a78bfa;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --link: #a5b4fc;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      line-height: 1.7;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Nav ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      background: rgba(15, 17, 23, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 5rem 0 3rem;
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+    .hero-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      background: var(--surface);
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-text h1 {
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .hero-text .title {
+      color: var(--accent2);
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+    .hero-text .affiliation {
+      color: var(--muted);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .btn.filled {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .btn.filled:hover {
+      background: var(--accent2);
+      border-color: var(--accent2);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+    section h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── About ── */
+    .about p {
+      color: var(--text);
+      font-size: 1rem;
+      max-width: 700px;
+    }
+
+    /* ── Publications ── */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .pub-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+    }
+    .pub-item .pub-title {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .pub-item .pub-authors {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-family: 'Arial', sans-serif;
+    }
+    .pub-item .pub-venue {
+      color: var(--accent2);
+      font-size: 0.85rem;
+      font-style: italic;
+      font-family: 'Arial', sans-serif;
+      margin-top: 0.2rem;
+    }
+    .pub-item .pub-links {
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+    .pub-item .pub-links a {
+      font-size: 0.78rem;
+      font-family: 'Arial', sans-serif;
+      color: var(--link);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .pub-item .pub-links a:hover {
+      background: var(--border);
+    }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .contact-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+    }
+    .contact-row .label {
+      color: var(--muted);
+      min-width: 90px;
+    }
+    .contact-row a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    .contact-row a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero { flex-direction: column; gap: 1.5rem; }
+      nav ul { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <span class="name">Chin-H. Shih</span>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-photo">
+        <!-- Replace src with your photo path, e.g. src="assets/photo.jpg" -->
+        <span>Photo<br/>Here</span>
+      </div>
+      <div class="hero-text">
+        <h1>Chin-H. Shih</h1>
+        <p class="title">PhD Student</p>
+        <p class="affiliation">University of Pennsylvania</p>
+        <div class="hero-links">
+          <a class="btn filled" href="assets/cv.pdf">Download CV</a>
+          <a class="btn" href="mailto:grmp4ul4@sas.upenn.edu">Email</a>
+          <a class="btn" href="#" target="_blank">Google Scholar</a>
+          <a class="btn" href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>
+        I am a PhD student at the University of Pennsylvania. My research interests include
+        [your research areas here — e.g., Bayesian statistics, machine learning, econometrics].
+        I am broadly interested in [brief description of your work and motivations].
+        Prior to Penn, I [brief background if relevant].
+      </p>
+    </section>
+
+    <!-- Publications / Research -->
+    <section id="publications">
+      <h2>Research</h2>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-title">Your Paper Title Here</div>
+          <div class="pub-authors">Chin-H. Shih, Co-Author Name</div>
+          <div class="pub-venue">Journal / Conference Name, Year</div>
+          <div class="pub-links">
+            <a href="#">PDF</a>
+            <a href="#">Abstract</a>
+            <a href="#">Code</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-title">Working Paper Title Here</div>
+          <div class="pub-authors">Chin-H. Shih</div>
+          <div class="pub-venue">Working Paper, 2026</div>
+          <div class="pub-links">
+            <a href="#">Draft</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-row">
+          <span class="label">Email</span>
+          <a href="mailto:grmp4ul4@sas.upenn.edu">grmp4ul4@sas.upenn.edu</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">GitHub</span>
+          <a href="https://github.com/ChinHShih" target="_blank">github.com/ChinHShih</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Google Scholar</span>
+          <a href="#">[Add your Google Scholar link]</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Office</span>
+          <span style="color: var(--text)">[Your office address, if applicable]</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © 2026 Chin-H. Shih · Built with GitHub Pages
+    </div>
+  </footer>
+
+</body>
+</html>
